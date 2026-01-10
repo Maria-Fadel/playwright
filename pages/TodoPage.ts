@@ -19,6 +19,10 @@ export default class TodoPage {
 
 	async load(page: Page) {
 		await page.goto('/todo');
+		await page.locator(this.todoItem).first().waitFor({
+			state: 'visible',
+
+		});
 	}
 
 	getWelcomeMessageElement(page: Page) {
@@ -26,7 +30,7 @@ export default class TodoPage {
 	}
 
 	async deleteTodo(page: Page) {
-		
+
 		await page.getByTestId('delete').first().click();
 	}
 
