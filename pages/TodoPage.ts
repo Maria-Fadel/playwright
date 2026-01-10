@@ -26,7 +26,8 @@ export default class TodoPage {
 	}
 
 	async deleteTodo(page: Page) {
-		await page.click(this.deleteIcon);
+		
+		await page.getByTestId('delete').first().click();
 	}
 
 	async getNoTodosMessage(page: Page) {
