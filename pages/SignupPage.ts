@@ -2,6 +2,8 @@ import { APIRequestContext, BrowserContext, Page } from '@playwright/test';
 import User from '../models/User';
 import UserApi from '../apis/UserApi';
 import config from '../playwright.config';
+import { BASE_URL } from '../utils/env';
+
 
 export default class SignupPage {
 	async load(page: Page) {
@@ -47,7 +49,7 @@ export default class SignupPage {
 		context: BrowserContext
 	) {
 		const response = await new UserApi().signup(request, user);
-
+       
 		const responseBody = await response.json();
 		const access_token = responseBody.access_token;
 		const firstName = responseBody.firstName;
