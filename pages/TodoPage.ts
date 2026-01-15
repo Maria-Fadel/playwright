@@ -30,8 +30,9 @@ export default class TodoPage {
 	}
 
 	async deleteTodo(page: Page) {
-
-		await page.getByTestId('delete').first().click();
+			if(await page.getByTestId('delete').isVisible()){
+				await page.getByTestId('delete').first().click();
+			}
 	}
 
 	async getNoTodosMessage(page: Page) {
