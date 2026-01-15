@@ -19,10 +19,10 @@ export default class TodoPage {
 
 	async load(page: Page) {
 		await page.goto('/todo');
-		await page.locator(this.todoItem).first().waitFor({
-			state: 'visible',
+	//	await page.locator(this.todoItem).first().waitFor({
+	//		state: 'visible',
 
-		});
+	//	});
 	}
 
 	getWelcomeMessageElement(page: Page) {
